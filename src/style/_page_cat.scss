@@ -1,0 +1,12 @@
+
+.pagecat-wrapper {
+    @include centrerdiv;
+    flex-direction: column;
+}
+
+.add-cat {
+    width: 10%;
+    height: 75px;
+    border: 1px solid ;
+    border-radius: 20px ;
+}
