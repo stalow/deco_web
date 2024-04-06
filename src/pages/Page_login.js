@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Page_login = () => {
- 
-
   return (
     <div className='login-wrapper'>
       <div className="login-container">
@@ -16,7 +16,9 @@ const Page_login = () => {
                   <label htmlFor="password">Mot de passe :</label>
                   <input type="password" id="password" name="password" />
               </div>
-              <button type="submit">Se connecter</button>
+              <Link to="/home">
+                <button type="submit">Se connecter</button>
+              </Link>
           </form>
           <div className="additional-options">
               <p><a href="#">Mot de passe oublié ?</a></p>
