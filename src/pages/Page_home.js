@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Page_home = () => {
   // Tableau pour stocker les tâches
@@ -9,9 +10,12 @@ const Page_home = () => {
     const fetchData = async () => {
       try {
         // Faire l'appel à votre API
-        const response = await fetch('votre_url_de_l_api');
+        const response = await fetch('http://172.232.62.233:8000/tasks');
         const jsonData = await response.json();
-        setData(jsonData);
+        const valuesArray = Object.values(jsonData);
+        
+        setData(valuesArray);
+        console.log(valuesArray);
       } catch (error) {
         console.error("Erreur lors de la récupération des données de l'API :", error);
       }
@@ -33,11 +37,14 @@ const Page_home = () => {
                 value={task}//  data[index]
                 placeholder={`Task ${index + 1}`}
               />
-              <div className="minute-item">56 minutes</div>
+              <div className="minute-item">56 minute</div> 
+              {/* // {data[index]} */}
             </div>
           ))}
         </div>
+        <Link to={"/agenda"}>
         <button className="send-button">Send to Jira</button>
+        </Link>
       </div>
     </div>
   );
